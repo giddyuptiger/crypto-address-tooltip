@@ -1,7 +1,3 @@
-//test
-document.querySelector("#testDiv").textContent = "Test Successful";
-console.log("Test Successful");
-
 import qr from "https://cdn.jsdelivr.net/npm/qr-code-styling@1.6.0-rc.1/+esm";
 
 //test
@@ -9,7 +5,9 @@ document.querySelector("#testDiv").textContent = "Test Successful ✅";
 console.log("Test Successful ✅");
 
 // Get the script tag reference
-const scriptTag = document.currentScript;
+const scripts = document.getElementsByTagName("script");
+const scriptTag = scripts[scripts.length - 1]; // Last script tag
+console.log("Script Tag Found:", scriptTag);
 
 // Get query parameters
 const urlParams = new URLSearchParams(scriptTag.src.split("?")[1]);
@@ -60,18 +58,23 @@ const qrCodeElem = document.createElement("div");
 // Create Copy button
 const copyBtn = document.createElement("button");
 copyBtn.textContent = "Copy Address";
+copyBtn.classList.add("hidden");
 copyBtn.style.background = "none";
 copyBtn.style.color = "white";
 copyBtn.style.padding = "1rem 2rem";
 copyBtn.style.border = "1px solid white";
-copyBtn.style.borderRadius = "5px";
+copyBtn.style.borderRadius = "1rem";
 copyBtn.style.cursor = "pointer";
-copyBtn.style.marginTop = "10px";
+// copyBtn.style.marginTop = "10px";
+copyBtn.style.position = "absolute";
+copyBtn.style.left = "0";
+copyBtn.style.top = "0";
+copyBtn.style.background = "#444444";
 
 // Append elements
 popover.appendChild(btcIcon.cloneNode(true));
 popover.appendChild(qrCodeElem);
-popover.appendChild(copyBtn);
+btcContainer.appendChild(copyBtn);
 btcContainer.appendChild(btcIcon);
 btcContainer.appendChild(popover);
 container.insertBefore(btcContainer, scriptTag);
@@ -90,14 +93,14 @@ const qrCode = new qr({
 qrCode.append(qrCodeElem);
 
 // Show/hide popover on hover
-btcContainer.addEventListener(
-  "mouseover",
-  () => (popover.style.display = "flex")
-);
-btcContainer.addEventListener(
-  "mouseleave",
-  () => (popover.style.display = "none")
-);
+btcContainer.addEventListener("mouseover", () => {
+  popover.style.display = "flex";
+  copyBtn.classList.remove("hidden");
+});
+btcContainer.addEventListener("mouseleave", () => {
+  popover.style.display = "none";
+  copyBtn.classList.add("hidden");
+});
 
 // Copy address function
 copyBtn.addEventListener("click", () => {
@@ -106,3 +109,7 @@ copyBtn.addEventListener("click", () => {
     setTimeout(() => (copyBtn.textContent = "Copy Address"), 2000);
   });
 });
+
+const style = document.createElement("style");
+style.textContent = `.hidden {  display: none;}`;
+document.head.appendChild(style);
