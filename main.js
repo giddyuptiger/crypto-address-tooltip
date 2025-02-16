@@ -1,8 +1,7 @@
 import qr from "https://cdn.jsdelivr.net/npm/qr-code-styling@1.6.0-rc.1/+esm";
+const version = require("./package.json").version;
 
-//test
-document.querySelector("#testDiv").textContent = "Test Successful ✅";
-console.log("Test Successful ✅");
+console.log("Thanks for using CrypTip Version: ", version);
 
 // Get the script tag reference
 const scripts = document.getElementsByTagName("script");
