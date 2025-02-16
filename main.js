@@ -21,7 +21,7 @@ console.log("Script Tag Found:", scriptTag);
 const destination = cryptipDiv ? cryptipDiv : scriptTag;
 
 // Get query parameters
-const urlParams = new URLSearchParams(destination.src.split("?")[1]);
+const urlParams = new URLSearchParams(scriptTag.src.split("?")[1]);
 const address =
   urlParams.get("address") ||
   "bc1q6z4nspyadq0sdq3vkcdtxxzwlywfva557wfqsm0h5g5xnnzrmpdq4cmhe6";
