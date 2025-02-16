@@ -2,7 +2,7 @@ console.log("cryptip Running!");
 
 import qr from "https://cdn.jsdelivr.net/npm/qr-code-styling@1.6.0-rc.1/+esm";
 
-console.log("Thanks for using CrypTip Version: 0.0.9");
+console.log("Thanks for using CrypTip Version: 0.0.10");
 
 //check if there's a div with id="cryptip"
 const cryptipDiv = document.getElementById("cryptip");
@@ -21,8 +21,8 @@ const destination = cryptipDiv ? cryptipDiv : scriptTag;
 
 // Get query parameters
 const urlParams = new URLSearchParams(scriptTag.src.split("?")[1]);
-const address =
-  urlParams.get("address") ||
+const btcAddress =
+  urlParams.get("btc") ||
   "bc1q6z4nspyadq0sdq3vkcdtxxzwlywfva557wfqsm0h5g5xnnzrmpdq4cmhe6";
 const containerId = urlParams.get("container"); // Optional custom placement
 
@@ -94,7 +94,7 @@ const qrCode = new qr({
   width: 150,
   height: 150,
   type: "svg",
-  data: address,
+  data: btcAddress,
   dotsOptions: { color: "#FF9900", type: "dots" },
   cornersSquareOptions: { type: "dot" },
   cornersDotOptions: { type: "dot" },
@@ -114,7 +114,7 @@ btcContainer.addEventListener("mouseleave", () => {
 
 // Copy address function
 copyBtn.addEventListener("click", () => {
-  navigator.clipboard.writeText(address).then(() => {
+  navigator.clipboard.writeText(btcAddress).then(() => {
     copyBtn.textContent = "Copied!";
     setTimeout(() => (copyBtn.textContent = "Copy Address"), 2000);
   });
