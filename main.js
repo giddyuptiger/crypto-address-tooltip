@@ -1,15 +1,27 @@
+console.log("cryptip Running!");
+
 import qr from "https://cdn.jsdelivr.net/npm/qr-code-styling@1.6.0-rc.1/+esm";
 const version = require("./package.json").version;
 
 console.log("Thanks for using CrypTip Version: ", version);
+
+//check if there's a div with id="cryptip"
+const cryptipDiv = document.getElementById("cryptip");
+if (cryptipDiv) {
+  console.log("Cryptip Div Found");
+} else {
+  console.log("Cryptip Div Not Found");
+}
 
 // Get the script tag reference
 const scripts = document.getElementsByTagName("script");
 const scriptTag = scripts[scripts.length - 1]; // Last script tag
 console.log("Script Tag Found:", scriptTag);
 
+const destination = cryptipDiv ? cryptipDiv : scriptTag;
+
 // Get query parameters
-const urlParams = new URLSearchParams(scriptTag.src.split("?")[1]);
+const urlParams = new URLSearchParams(destination.src.split("?")[1]);
 const address =
   urlParams.get("address") ||
   "bc1q6z4nspyadq0sdq3vkcdtxxzwlywfva557wfqsm0h5g5xnnzrmpdq4cmhe6";
@@ -18,7 +30,7 @@ const containerId = urlParams.get("container"); // Optional custom placement
 // Determine where to insert the widget
 const container = containerId
   ? document.getElementById(containerId)
-  : scriptTag.parentNode;
+  : destination.parentNode;
 
 // Create main wrapper
 const btcContainer = document.createElement("div");
@@ -76,7 +88,7 @@ popover.appendChild(qrCodeElem);
 btcContainer.appendChild(copyBtn);
 btcContainer.appendChild(btcIcon);
 btcContainer.appendChild(popover);
-container.insertBefore(btcContainer, scriptTag);
+container.insertBefore(btcContainer, destination);
 
 // Generate QR code
 const qrCode = new qr({
