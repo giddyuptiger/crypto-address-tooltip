@@ -2,7 +2,7 @@ console.log("cryptip Running!");
 
 import qr from "https://cdn.jsdelivr.net/npm/qr-code-styling@1.6.0-rc.1/+esm";
 
-console.log("CrypTip Module Loaded, Version 0.0.14");
+console.log("CrypTip Module Loaded, Version 0.0.15");
 
 export function init({
   btc,
@@ -40,6 +40,7 @@ export function init({
 
   // Create main wrapper
   const btcContainer = document.createElement("div");
+  btcContainer.id = "btcContainer";
   btcContainer.style.position = "relative";
   btcContainer.style.display = "inline-block";
   btcContainer.style.cursor = "pointer";
