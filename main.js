@@ -2,7 +2,7 @@ console.log("cryptip Running!");
 
 import qr from "https://cdn.jsdelivr.net/npm/qr-code-styling@1.6.0-rc.1/+esm";
 
-console.log("CrypTip Module Loaded, Version 0.0.12");
+console.log("CrypTip Module Loaded, Version 0.0.13");
 
 export function init({
   btc,
@@ -96,7 +96,7 @@ export function init({
   btcContainer.appendChild(popover);
 
   if (divId || cryptipDiv) {
-    let container = divId || cryptipDiv;
+    let container = divId ? document.getElementById(divId) : cryptipDiv;
     container.appendChild(btcContainer);
   } else {
     scriptTag.parentNode.insertBefore(btcContainer, scriptTag);

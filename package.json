@@ -1,6 +1,6 @@
 {
   "name": "cryptip",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "description": "Inserts a icon that displays your crypto addresses on hover",
   "main": "main.js",
   "type": "module",
