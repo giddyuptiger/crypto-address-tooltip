@@ -1,5 +1,9 @@
 import qr from "https://cdn.jsdelivr.net/npm/qr-code-styling@1.6.0-rc.1/+esm";
 
+//test
+document.querySelector("#testDiv").textContent = "Test Successful ✅";
+console.log("Test Successful ✅");
+
 // Get the script tag reference
 const scriptTag = document.currentScript;
 

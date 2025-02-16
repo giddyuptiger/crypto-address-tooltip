@@ -1,0 +1,27 @@
+{
+  "name": "cryptip",
+  "version": "0.0.1",
+  "description": "Inserts a icon that displays your crypto addresses on hover",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/giddyuptiger/crypto-address-tooltip.git"
+  },
+  "keywords": [
+    "crypto",
+    "bitcoin",
+    "wallet",
+    "icon",
+    "tooltip",
+    "qr-code"
+  ],
+  "author": "Jeremy Irons",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/giddyuptiger/crypto-address-tooltip/issues"
+  },
+  "homepage": "https://github.com/giddyuptiger/crypto-address-tooltip#readme"
+}
