@@ -1,9 +1,8 @@
 console.log("cryptip Running!");
 
 import qr from "https://cdn.jsdelivr.net/npm/qr-code-styling@1.6.0-rc.1/+esm";
-// const version = require("./package.json").version;
 
-// console.log("Thanks for using CrypTip Version: ", version);
+console.log("Thanks for using CrypTip Version: 0.0.9");
 
 //check if there's a div with id="cryptip"
 const cryptipDiv = document.getElementById("cryptip");
@@ -38,7 +37,7 @@ btcContainer.style.position = "relative";
 btcContainer.style.display = "inline-block";
 btcContainer.style.cursor = "pointer";
 btcContainer.style.color = "gold";
-btcContainer.style.margin = "4rem";
+btcContainer.style.margin = ".5rem 1rem";
 
 // Create Bitcoin icon
 const btcIcon = document.createElement("span");
